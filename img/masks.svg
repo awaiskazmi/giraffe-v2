@@ -1,0 +1,7 @@
+<svg>
+  <defs>
+  <clipPath id="clipPath" clipPathUnits="objectBoundingBox">
+    <polygon points=".5,0 .8,1 0,.4 1,.4 .2,1" />
+  </clipPath>
+  </defs>
+</svg>

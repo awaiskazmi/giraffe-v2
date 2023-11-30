@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giraffe - Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- All masks -->
+    <svg
+      style="
+        position: absolute;
+        overflow: hidden;
+        z-index: -1;
+        height: 0;
+        width: 0;
+      "
+    >
+      <defs>
+        <clipPath id="clipPath" clipPathUnits="objectBoundingBox">
+          <polygon points=".5,0 .8,1 0,.4 1,.4 .2,1" />
+        </clipPath>
+
+        <clipPath id="window">
+          <path fill="black" d="M183.39 187.08h661.78v372.24H183.39z" />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <header></header>
+
+    <section id="intro" class="relative">
+      <div class="container flex items-end h-screen max-w-none sticky top-0">
+        <div class="content grow">
+          <div class="clouds absolute left-0 w-full">
+            <img src="./img/clouds.svg" class="h-40 w-full" />
+          </div>
+          <div class="rikshaw">
+            <img class="rikshaw-body" src="./img/rikshaw-body.svg" alt="" />
+            <div class="tyres">
+              <img class="front" src="./img/rikshaw-tyre-front.svg" />
+              <img class="back" src="./img/rikshaw-tyre-back.svg" />
+            </div>
+          </div>
+          <div class="relative">
+            <div class="rails"></div>
+            <div class="lamps absolute left-0 w-full">
+              <div class="lamp absolute w-auto -top-72 left-20">
+                <img
+                  src="./img/lamp.svg"
+                  class="absolute w-full bottom-0 h-[20rem] z-10"
+                />
+                <img
+                  src="./img/lamp-light.svg"
+                  class="lamp-light h-72 top-0 left-0"
+                />
+              </div>
+              <div class="lamp absolute w-auto -top-72 right-20">
+                <img
+                  src="./img/lamp.svg"
+                  class="absolute w-full bottom-0 h-[20rem] z-10"
+                />
+                <img
+                  src="./img/lamp-light.svg"
+                  class="lamp-light h-72 top-0 left-0"
+                />
+              </div>
+            </div>
+            <div class="building-wrapper">
+              <img class="sun" src="./img/sun.svg" alt="" />
+              <img
+                class="building max-w-none"
+                src="./img/building-top.svg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gate" class="relative">
+      <div
+        class="container border-4 border-black max-w-none h-screen sticky top-0"
+      >
+        <div class="pb-16 h-screen relative">
+          <img
+            class="building max-w-none object-bottom h-full relative z-10"
+            src="./img/building-bottom.svg"
+            alt=""
+          />
+          <div
+            class="gate w-11/12 md:w-4/12 absolute bottom-[4.5rem] z-10 left-1/2 transform -translate-x-1/2"
+          >
+            <img
+              src="./img/gate-frame.svg"
+              alt=""
+              class="w-full relative z-20"
+            />
+            <div
+              class="gate-hanging w-3/4 z-10 absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-2/3"
+            >
+              <div
+                class="absolute top-1/2 left-1/2 pl-2 md:pl-4 pr-4 md:pr-7 transform -translate-x-1/2 -translate-y-[38%] h-1/2 w-2/3 leading-tight text-justify text-xs md:text-sm flex items-center"
+              >
+                We are an idea space driven by culture. Building exciting
+                cross-cultural experiences through art and music. Storytelling
+                is out expression that we convey through various mediums.
+              </div>
+              <img src="./img/gate-hang.svg" alt="" class="z-[5]" />
+            </div>
+            <div
+              class="absolute top-0 left-0 h-full w-full bg-[#f2bf2e] z-0"
+            ></div>
+          </div>
+          <div class="road">
+            <img
+              class="h-20 md:h-20 w-full object-cover absolute bottom-0 left-0 right-0 z-0 bg-red-400 border-2 border-black"
+              src="./img/road.svg"
+              alt=""
+            />
+          </div>
+          <div class="plants relative z-10">
+            <img
+              src="./img/plant.svg"
+              class="plant absolute -bottom-7 left-5"
+              alt=""
+            />
+            <img
+              src="./img/plant.svg"
+              class="plant absolute -bottom-7 left-80"
+              alt=""
+            />
+            <img
+              src="./img/plant.svg"
+              class="plant absolute -bottom-7 right-5 scale-x-[-1]"
+              alt=""
+            />
+            <img
+              src="./img/plant.svg"
+              class="plant absolute -bottom-7 right-80 scale-x-[-1]"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="projects"
+      class="absolute bg-orange-500 z-40 w-full top-[12500px] left-0"
+    >
+      <div id="projects-spacer" class="h-96"></div>
+      <div
+        id="projects-bg"
+        class="h-screen bg-green-400 z-10 relative rounded-[200px]"
+      ></div>
+      <div
+        class="project-elements absolute sticky top h-screen flex items-center justify-between w-full z-20 px-7"
+      >
+        <img src="./img/side-strip.svg" class="h-1/2" />
+        <img src="./img/side-strip.svg" class="h-1/2" />
+      </div>
+      <div class="showcase h-screen z-10 relative rounded-[200px]">
+        <div class="w-1/2 mx-auto">
+          <div class="video-wrapper">
+            <img src="./img/window.svg" alt="" />
+            <video
+              muted
+              autoplay
+              loop
+              src="./video/video.mp4"
+              class="masked"
+            ></video>
+          </div>
+        </div>
+      </div>
+      <div class="showcase h-screen z-10 relative rounded-[200px]">
+        <div class="w-1/2 mx-auto">
+          <div class="video-wrapper">
+            <img src="./img/window.svg" alt="" />
+            <video
+              muted
+              autoplay
+              loop
+              src="./video/video.mp4"
+              class="masked"
+            ></video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollToPlugin.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>

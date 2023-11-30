@@ -1,0 +1,190 @@
+// LENNIS
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+// LENNIS
+
+* {
+  box-sizing: border-box;
+  font-family: "Womby";
+  margin: 0;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+video {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.video-wrapper {
+  position: relative;
+  aspect-ratio: 16/9;
+
+  img {
+    pointer-events: none;
+    position: relative;
+    z-index: 1;
+  }
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    padding: 17% 18.5% 2.5% 17%;
+  }
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background-color: #000;
+  z-index: 9999999999;
+}
+
+// video {
+//   clip-path: url(#clipPath);
+// }
+
+.rikshaw {
+  width: 400px; // control rikshaw size here
+  position: relative;
+  top: 0;
+  aspect-ratio: 5/4;
+  z-index: 1;
+
+  .rikshaw-body {
+    position: relative;
+    z-index: 1;
+  }
+
+  .tyres {
+    display: block;
+
+    img {
+      display: inline-block;
+      width: 22%;
+    }
+
+    .front,
+    .back {
+      display: block;
+      position: absolute;
+      bottom: 0;
+    }
+
+    .front {
+      left: 2%;
+    }
+
+    .back {
+      right: 6.25%;
+    }
+  }
+}
+
+.rails {
+  width: 100%;
+  height: 100px;
+  background: url("./img/railing.svg") center bottom/contain repeat-x;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  z-index: 10;
+}
+
+.building {
+  display: block;
+  position: relative;
+  object-fit: cover;
+  width: 104%;
+  left: -2%;
+}
+
+.sun {
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  height: 300px;
+  top: -296px;
+  transform: translateX(-50%);
+  z-index: -1;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.plant {
+  height: 10rem;
+}
+
+.showcase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// SECTIONS
+// #intro
+
+#intro {
+  height: 5500px;
+}
+
+// #gate
+
+#gate {
+  height: calc(5000px + 3000px); // needed 5000 + 3000 offset for later sections
+}
+
+@media (max-width: 768px) {
+  .rikshaw {
+    width: 200px;
+    top: 1px;
+  }
+  .rails {
+    height: 50px;
+    top: -48px;
+    background-position: center bottom;
+    background-size: cover;
+  }
+  .sun {
+    height: 120px;
+    width: 60%;
+    top: -119px;
+  }
+  .plant {
+    height: 6rem;
+  }
+}
