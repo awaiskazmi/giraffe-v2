@@ -30,11 +30,11 @@ html.lenis {
 
 html,
 body {
+  overflow-x: clip;
   margin: 0;
 }
 
 body {
-  overflow-x: hidden;
 }
 
 video {
@@ -79,11 +79,11 @@ header {
 // }
 
 .rikshaw {
-  width: 400px; // control rikshaw size here
+  width: 300px; // control rikshaw size here
   position: relative;
   top: 0;
   aspect-ratio: 5/4;
-  z-index: 1;
+  z-index: 40;
 
   .rikshaw-body {
     position: relative;
@@ -122,7 +122,7 @@ header {
   position: absolute;
   top: -100px;
   left: 0;
-  z-index: 10;
+  z-index: 50;
 }
 
 .building {
@@ -133,9 +133,17 @@ header {
   left: -2%;
 }
 
+.clouds {
+  position: absolute;
+  left: 0;
+  top: -6rem;
+  width: 100%;
+  padding-inline: 8rem;
+}
+
 .sun {
   position: absolute;
-  width: 50%;
+  width: 35%;
   left: 50%;
   height: 300px;
   top: -296px;
@@ -143,6 +151,33 @@ header {
   z-index: -1;
   object-fit: contain;
   object-position: center bottom;
+}
+
+.lamp {
+  position: absolute;
+  width: auto;
+  top: -14rem;
+
+  &--left {
+    left: 5rem;
+  }
+
+  &--right {
+    right: 5rem;
+  }
+
+  .lamp-frame {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 10;
+    height: 16rem;
+  }
+  .lamp-light {
+    height: 14rem;
+    top: 0;
+    left: 0;
+  }
 }
 
 .plant {
@@ -153,9 +188,11 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 50px;
 }
 
 // SECTIONS
+
 // #intro
 
 #intro {
@@ -166,6 +203,14 @@ header {
 
 #gate {
   height: calc(5000px + 3000px); // needed 5000 + 3000 offset for later sections
+}
+
+// backgrounds
+
+[id*="-bg"] {
+  height: calc(100vh - 50px) !important;
+  margin-top: 50px !important;
+  border-radius: 200px;
 }
 
 @media (max-width: 768px) {
@@ -179,12 +224,50 @@ header {
     background-position: center bottom;
     background-size: cover;
   }
+  .clouds {
+    left: 50%;
+    // top: -6rem;
+    transform: translateX(-50%);
+    width: 120%;
+    padding-inline: 0;
+  }
   .sun {
     height: 120px;
     width: 60%;
     top: -119px;
   }
+  .lamp {
+    position: absolute;
+    width: auto;
+    top: -8.5rem;
+
+    &--left {
+      left: -5rem;
+    }
+
+    &--right {
+      right: -5rem;
+    }
+
+    .lamp-frame {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      z-index: 10;
+      height: 10rem;
+    }
+    .lamp-light {
+      height: 8.5rem;
+      top: 0;
+      left: 0;
+    }
+  }
   .plant {
     height: 6rem;
+  }
+  [id*="-bg"] {
+    height: calc(100vh - 50px) !important;
+    margin-top: 50px !important;
+    border-radius: 80px;
   }
 }

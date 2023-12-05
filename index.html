@@ -33,9 +33,9 @@
 
     <section id="intro" class="relative">
       <div class="container flex items-end h-screen max-w-none sticky top-0">
-        <div class="content grow">
-          <div class="clouds absolute left-0 w-full">
-            <img src="./img/clouds.svg" class="h-40 w-full" />
+        <div class="content relative grow">
+          <div class="clouds">
+            <img src="./img/clouds.svg" class="w-full" />
           </div>
           <div class="rikshaw">
             <img class="rikshaw-body" src="./img/rikshaw-body.svg" alt="" />
@@ -47,31 +47,19 @@
           <div class="relative">
             <div class="rails"></div>
             <div class="lamps absolute left-0 w-full">
-              <div class="lamp absolute w-auto -top-72 left-20">
-                <img
-                  src="./img/lamp.svg"
-                  class="absolute w-full bottom-0 h-[20rem] z-10"
-                />
-                <img
-                  src="./img/lamp-light.svg"
-                  class="lamp-light h-72 top-0 left-0"
-                />
+              <div class="lamp lamp--left">
+                <img src="./img/lamp.svg" class="lamp-frame" />
+                <img src="./img/lamp-light.svg" class="lamp-light" />
               </div>
-              <div class="lamp absolute w-auto -top-72 right-20">
-                <img
-                  src="./img/lamp.svg"
-                  class="absolute w-full bottom-0 h-[20rem] z-10"
-                />
-                <img
-                  src="./img/lamp-light.svg"
-                  class="lamp-light h-72 top-0 left-0"
-                />
+              <div class="lamp lamp--right">
+                <img src="./img/lamp.svg" class="lamp-frame" />
+                <img src="./img/lamp-light.svg" class="lamp-light" />
               </div>
             </div>
             <div class="building-wrapper">
               <img class="sun" src="./img/sun.svg" alt="" />
               <img
-                class="building max-w-none"
+                class="building max-w-none h-96 md:h-auto"
                 src="./img/building-top.svg"
                 alt=""
               />
@@ -82,12 +70,10 @@
     </section>
 
     <section id="gate" class="relative">
-      <div
-        class="container border-4 border-black max-w-none h-screen sticky top-0"
-      >
+      <div class="container max-w-none h-screen sticky top-0">
         <div class="pb-16 h-screen relative">
           <img
-            class="building max-w-none object-bottom h-full relative z-10"
+            class="building max-w-none object-bottom h-full relative z-10 -top-px"
             src="./img/building-bottom.svg"
             alt=""
           />
@@ -117,7 +103,7 @@
           </div>
           <div class="road">
             <img
-              class="h-20 md:h-20 w-full object-cover absolute bottom-0 left-0 right-0 z-0 bg-red-400 border-2 border-black"
+              class="h-20 md:h-20 w-full object-cover absolute bottom-0 left-0 right-0 z-0 bg-red-400"
               src="./img/road.svg"
               alt=""
             />
@@ -125,22 +111,22 @@
           <div class="plants relative z-10">
             <img
               src="./img/plant.svg"
-              class="plant absolute -bottom-7 left-5"
+              class="plant absolute -bottom-7 -left-12 md:left-5"
               alt=""
             />
             <img
               src="./img/plant.svg"
-              class="plant absolute -bottom-7 left-80"
+              class="plant absolute -bottom-7 left-80 desktop hidden md:block"
               alt=""
             />
             <img
               src="./img/plant.svg"
-              class="plant absolute -bottom-7 right-5 scale-x-[-1]"
+              class="plant absolute -bottom-7 -right-12 md:right-5 scale-x-[-1]"
               alt=""
             />
             <img
               src="./img/plant.svg"
-              class="plant absolute -bottom-7 right-80 scale-x-[-1]"
+              class="plant absolute -bottom-7 right-80 scale-x-[-1] desktop hidden md:block"
               alt=""
             />
           </div>
@@ -153,18 +139,29 @@
       class="absolute bg-orange-500 z-40 w-full top-[12500px] left-0"
     >
       <div id="projects-spacer" class="h-96"></div>
+      <div id="projects-bg" class="h-screen bg-green-400 z-10 relative"></div>
       <div
-        id="projects-bg"
-        class="h-screen bg-green-400 z-10 relative rounded-[200px]"
-      ></div>
-      <div
-        class="project-elements absolute sticky top h-screen flex items-center justify-between w-full z-20 px-7"
+        class="project-elements absolute sticky top h-screen flex flex-col md:flex-row items-center justify-between w-full z-[100] px-7 pt-[50px]"
       >
-        <img src="./img/side-strip.svg" class="h-1/2" />
-        <img src="./img/side-strip.svg" class="h-1/2" />
+        <img
+          src="./img/side-strip.svg"
+          class="md:h-1/2 desktop hidden md:block"
+        />
+        <img
+          src="./img/side-strip.svg"
+          class="md:h-1/2 desktop hidden md:block"
+        />
+        <img
+          src="./img/top-strip.svg"
+          class="h-10 mobile block md:hidden mt-10"
+        />
+        <img
+          src="./img/top-strip.svg"
+          class="h-10 mobile block md:hidden mb-10"
+        />
       </div>
-      <div class="showcase h-screen z-10 relative rounded-[200px]">
-        <div class="w-1/2 mx-auto">
+      <div class="showcase h-screen z-10 relative">
+        <div class="w-1/2 mx-auto desktop hidden md:block">
           <div class="video-wrapper">
             <img src="./img/window.svg" alt="" />
             <video
@@ -176,9 +173,14 @@
             ></video>
           </div>
         </div>
+        <div class="w-9/12 mx-auto mobile block md:hidden">
+          <div class="video-wrapper">
+            <img src="./img/project-window-mobile.svg" alt="" />
+          </div>
+        </div>
       </div>
-      <div class="showcase h-screen z-10 relative rounded-[200px]">
-        <div class="w-1/2 mx-auto">
+      <div class="showcase h-screen z-10 relative">
+        <div class="w-1/2 mx-auto desktop hidden md:block">
           <div class="video-wrapper">
             <img src="./img/window.svg" alt="" />
             <video
@@ -188,6 +190,44 @@
               src="./video/video.mp4"
               class="masked"
             ></video>
+          </div>
+        </div>
+        <div class="w-9/12 mx-auto mobile block md:hidden">
+          <div class="video-wrapper">
+            <img src="./img/project-window-mobile.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div id="team-bg" class="h-screen bg-yellow-400 z-20 relative"></div>
+      <div class="showcase h-screen z-30 relative">
+        <div class="w-1/2 mx-auto desktop hidden md:block">
+          <div class="video-wrapper">
+            <img src="./img/team-left.svg" class="relative -left-20" />
+          </div>
+        </div>
+        <div class="w-11/12 mx-auto mobile block md:hidden">
+          <div class="video-wrapper">
+            <img src="./img/team-mobile.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="showcase h-screen z-30 relative">
+        <div class="w-1/2 mx-auto desktop hidden md:block">
+          <div class="video-wrapper">
+            <img src="./img/team-left.svg" class="relative -left-20" />
+          </div>
+        </div>
+        <div class="w-11/12 mx-auto mobile block md:hidden">
+          <div class="video-wrapper">
+            <img src="./img/team-mobile.svg" alt="" />
+          </div>
+        </div>
+      </div>
+      <div id="contact-bg" class="h-screen bg-blue-400 z-40 relative"></div>
+      <div class="showcase h-screen z-50 relative">
+        <div class="w-11/12 md:w-2/3 mx-auto">
+          <div class="video-wrapper">
+            <img src="./img/contact.svg" alt="" />
           </div>
         </div>
       </div>

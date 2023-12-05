@@ -26,11 +26,8 @@ html.lenis {
 
 html,
 body {
+  overflow-x: clip;
   margin: 0;
-}
-
-body {
-  overflow-x: hidden;
 }
 
 video {
@@ -70,11 +67,11 @@ header {
 }
 
 .rikshaw {
-  width: 400px;
+  width: 300px;
   position: relative;
   top: 0;
   aspect-ratio: 5/4;
-  z-index: 1;
+  z-index: 40;
 }
 .rikshaw .rikshaw-body {
   position: relative;
@@ -107,7 +104,7 @@ header {
   position: absolute;
   top: -100px;
   left: 0;
-  z-index: 10;
+  z-index: 50;
 }
 
 .building {
@@ -119,9 +116,17 @@ header {
   left: -2%;
 }
 
+.clouds {
+  position: absolute;
+  left: 0;
+  top: -6rem;
+  width: 100%;
+  padding-inline: 8rem;
+}
+
 .sun {
   position: absolute;
-  width: 50%;
+  width: 35%;
   left: 50%;
   height: 300px;
   top: -296px;
@@ -133,6 +138,30 @@ header {
      object-position: center bottom;
 }
 
+.lamp {
+  position: absolute;
+  width: auto;
+  top: -14rem;
+}
+.lamp--left {
+  left: 5rem;
+}
+.lamp--right {
+  right: 5rem;
+}
+.lamp .lamp-frame {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  z-index: 10;
+  height: 16rem;
+}
+.lamp .lamp-light {
+  height: 14rem;
+  top: 0;
+  left: 0;
+}
+
 .plant {
   height: 10rem;
 }
@@ -141,6 +170,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 50px;
 }
 
 #intro {
@@ -149,6 +179,12 @@ header {
 
 #gate {
   height: 8000px;
+}
+
+[id*=-bg] {
+  height: calc(100vh - 50px) !important;
+  margin-top: 50px !important;
+  border-radius: 200px;
 }
 
 @media (max-width: 768px) {
@@ -162,12 +198,46 @@ header {
     background-position: center bottom;
     background-size: cover;
   }
+  .clouds {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    padding-inline: 0;
+  }
   .sun {
     height: 120px;
     width: 60%;
     top: -119px;
   }
+  .lamp {
+    position: absolute;
+    width: auto;
+    top: -8.5rem;
+  }
+  .lamp--left {
+    left: -5rem;
+  }
+  .lamp--right {
+    right: -5rem;
+  }
+  .lamp .lamp-frame {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 10;
+    height: 10rem;
+  }
+  .lamp .lamp-light {
+    height: 8.5rem;
+    top: 0;
+    left: 0;
+  }
   .plant {
     height: 6rem;
+  }
+  [id*=-bg] {
+    height: calc(100vh - 50px) !important;
+    margin-top: 50px !important;
+    border-radius: 80px;
   }
 }/*# sourceMappingURL=style.css.map */

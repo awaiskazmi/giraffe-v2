@@ -20,6 +20,7 @@ ScrollTrigger.defaults({
 
 const rikshaw = document.querySelector(".rikshaw");
 const sun = document.querySelector(".sun");
+const clouds = document.querySelector(".clouds");
 const sky = document.body;
 const tyres = gsap.utils.toArray(".front, .back");
 const lampLights = gsap.utils.toArray(".lamp-light");
@@ -83,7 +84,16 @@ rikshawTimeline.fromTo(
   sun,
   { y: () => sun.clientHeight },
   {
-    y: () => 2,
+    y: () => 30,
+  },
+  "rikshaw"
+);
+
+rikshawTimeline.fromTo(
+  clouds,
+  { opacity: () => 0.2 },
+  {
+    opacity: () => 1,
   },
   "rikshaw"
 );
@@ -138,6 +148,40 @@ const projectElementsTimeline = gsap.timeline({
       }`,
     scrub: 0.7,
     pin: ".project-elements",
+    pinSpacing: false,
+    // invalidateOnRefresh: true,
+  },
+});
+
+const teamBGTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#team-bg",
+    start: "top top",
+    // end: `bottom top`,
+    end: () =>
+      `+=${
+        document.getElementById("projects").clientHeight -
+        document.getElementById("projects-spacer").clientHeight
+      }`,
+    scrub: 0.7,
+    pin: "#team-bg",
+    pinSpacing: false,
+    // invalidateOnRefresh: true,
+  },
+});
+
+const contactBGTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#contact-bg",
+    start: "top top",
+    // end: `bottom top`,
+    end: () =>
+      `+=${
+        document.getElementById("projects").clientHeight -
+        document.getElementById("projects-spacer").clientHeight
+      }`,
+    scrub: 0.7,
+    pin: "#contact-bg",
     pinSpacing: false,
     // invalidateOnRefresh: true,
   },
