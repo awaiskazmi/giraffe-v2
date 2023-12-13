@@ -20,7 +20,7 @@ html.lenis {
 
 * {
   box-sizing: border-box;
-  font-family: "Womby";
+  font-family: "Womby", sans-serif;
   margin: 0;
 }
 
@@ -63,6 +63,8 @@ header {
   height: 50px;
   width: 100%;
   background-color: #000;
+  display: flex;
+  align-items: center;
   z-index: 9999999999;
 }
 
@@ -118,10 +120,11 @@ header {
 
 .clouds {
   position: absolute;
-  left: 0;
-  top: -6rem;
-  width: 100%;
+  left: 50%;
+  top: -10rem;
+  width: 80%;
   padding-inline: 8rem;
+  transform: translateX(-50%);
 }
 
 .sun {
@@ -164,6 +167,30 @@ header {
 
 .plant {
   height: 10rem;
+}
+
+.gate {
+  padding-top: 70px;
+  padding-bottom: 4.625rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  overflow: clip;
+  display: flex;
+  align-items: flex-end;
+}
+
+.gate-bg {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: #f2bf2e;
+  z-index: 0;
+  bottom: 4.625rem;
+  height: 66.666667%;
 }
 
 .showcase {
@@ -239,5 +266,8 @@ header {
     height: calc(100vh - 50px) !important;
     margin-top: 50px !important;
     border-radius: 80px;
+  }
+  .gate-bg {
+    height: 50%;
   }
 }/*# sourceMappingURL=style.css.map */

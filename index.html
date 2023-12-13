@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Giraffe - Test</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.cdnfonts.com/css/womby" rel="stylesheet">
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -29,7 +30,11 @@
       </defs>
     </svg>
 
-    <header></header>
+    <header>
+      <div class="pl-2">
+        <img src="./img/logo-bright.png" height="40" class="h-8">
+      </div>
+    </header>
 
     <section id="intro" class="relative">
       <div class="container flex items-end h-screen max-w-none sticky top-0">
@@ -78,7 +83,7 @@
             alt=""
           />
           <div
-            class="gate w-11/12 md:w-4/12 absolute bottom-[4.5rem] z-10 left-1/2 transform -translate-x-1/2"
+            class="gate w-11/12 md:w-4/12 2xl:w-[30%]"
           >
             <img
               src="./img/gate-frame.svg"
@@ -86,7 +91,7 @@
               class="w-full relative z-20"
             />
             <div
-              class="gate-hanging w-3/4 z-10 absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-2/3"
+              class="gate-hanging w-3/4 z-10 absolute top-2/3 left-1/2 transform -translate-x-1/2 -translate-y-2/4 md:-translate-y-2/3"
             >
               <div
                 class="absolute top-1/2 left-1/2 pl-2 md:pl-4 pr-4 md:pr-7 transform -translate-x-1/2 -translate-y-[38%] h-1/2 w-2/3 leading-tight text-justify text-xs md:text-sm flex items-center"
@@ -95,15 +100,15 @@
                 cross-cultural experiences through art and music. Storytelling
                 is out expression that we convey through various mediums.
               </div>
-              <img src="./img/gate-hang.svg" alt="" class="z-[5]" />
+              <img src="./img/gate-hang.svg" alt="" class="w-full z-[5]" />
             </div>
             <div
-              class="absolute top-0 left-0 h-full w-full bg-[#f2bf2e] z-0"
+              class="gate-bg"
             ></div>
           </div>
           <div class="road">
             <img
-              class="h-20 md:h-20 w-full object-cover absolute bottom-0 left-0 right-0 z-0 bg-red-400"
+              class="h-20 md:h-32 w-full object-cover absolute bottom-0 left-0 right-0 z-0 bg-[#939393]"
               src="./img/road.svg"
               alt=""
             />
@@ -225,7 +230,7 @@
       </div>
       <div id="contact-bg" class="h-screen bg-blue-400 z-40 relative"></div>
       <div class="showcase h-screen z-50 relative">
-        <div class="w-11/12 md:w-2/3 mx-auto">
+        <div class="w-11/12 md:w-2/3 2xl:w-[60%] mx-auto">
           <div class="video-wrapper">
             <img src="./img/contact.svg" alt="" />
           </div>
