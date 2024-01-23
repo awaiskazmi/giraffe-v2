@@ -13,7 +13,7 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 ScrollTrigger.defaults({
-  markers: true,
+  markers: false,
   duration: 0.4,
   ease: "expo.inOut",
 });
@@ -23,6 +23,7 @@ const sun = document.querySelector(".sun");
 const clouds = document.querySelector(".clouds");
 const doorLeft = document.querySelector(".door__left");
 const doorRight = document.querySelector(".door__right");
+const doorBlocks = document.querySelectorAll(".door__block");
 const sky = document.body;
 const tyres = gsap.utils.toArray(".front, .back");
 const lampLights = gsap.utils.toArray(".lamp-light");
@@ -69,11 +70,19 @@ const gateTimeline = gsap.timeline({
     trigger: "#gate",
     start: "top top",
     end: "bottom bottom",
-    // end: "+=1000%",
     scrub: 0.7,
-    // pin: "#intro .container",
     pinSpacing: true,
-    // spacer: true,
+    invalidateOnRefresh: true,
+  },
+});
+
+const gateDoorBlockTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#gate",
+    start: "top top",
+    end: "+=800px",
+    scrub: 0.7,
+    pinSpacing: true,
     invalidateOnRefresh: true,
   },
 });
@@ -136,17 +145,25 @@ lampLights.forEach((light, i) => {
 
 gateTimeline.fromTo(
   doorLeft,
-  { opacity: () => 0.2 },
-  { opacity: () => 1 },
+  { rotationY: () => 0 },
+  { rotationY: () => -180 },
   "door"
 );
 
 gateTimeline.fromTo(
   doorRight,
-  { opacity: () => 0.2 },
-  { opacity: () => 1 },
+  { rotationY: () => 1 },
+  { rotationY: () => -180 },
   "door"
 );
+
+doorBlocks.forEach((doorBlock, i) => {
+  gateDoorBlockTimeline.fromTo(
+    doorBlock,
+    { width: 0 },
+    { width: 8 },
+  );
+});
 
 // const projectsBGTimeline = gsap.timeline({
 //   scrollTrigger: {

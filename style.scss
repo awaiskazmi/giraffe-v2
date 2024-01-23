@@ -223,10 +223,27 @@ header {
   width: 40%;
   left: 10%;
   bottom: -2px;
+  display: flex;
+
+  img {
+    flex-shrink: 0;
+  }
+
+  &__left {
+    transform-origin: left;
+  }
 
   &__right {
     left: unset;
     right: 10%;
+    transform-origin: right;
+  }
+
+  &__block {
+    flex-shrink: 0;
+    top: 0;
+    width: 0;
+    background-color: #662f00;
   }
 }
 
@@ -327,6 +344,6 @@ header {
     border-radius: 80px;
   }
   .gate {
-    padding-top: 180px;
+    width: 85%;
   }
 }

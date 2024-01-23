@@ -205,10 +205,24 @@ header nav a:not(:last-child)::after {
   width: 40%;
   left: 10%;
   bottom: -2px;
+  display: flex;
+}
+.door img {
+  flex-shrink: 0;
+}
+.door__left {
+  transform-origin: left;
 }
 .door__right {
   left: unset;
   right: 10%;
+  transform-origin: right;
+}
+.door__block {
+  flex-shrink: 0;
+  top: 0;
+  width: 0;
+  background-color: #662f00;
 }
 
 .showcase {
@@ -293,6 +307,6 @@ header nav a:not(:last-child)::after {
     border-radius: 80px;
   }
   .gate {
-    padding-top: 180px;
+    width: 85%;
   }
 }/*# sourceMappingURL=style.css.map */
