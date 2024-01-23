@@ -5,19 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Giraffe</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.cdnfonts.com/css/womby" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/womby" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="icon"
+      href="https://giraffe.com.pk/wp-content/uploads/2020/08/cropped-favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="https://giraffe.com.pk/wp-content/uploads/2020/08/cropped-favicon-192x192.png"
+      sizes="192x192"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://giraffe.com.pk/wp-content/uploads/2020/08/cropped-favicon-180x180.png"
+    />
+    <!-- OG TAGS -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Giraffe" />
+    <meta
+      property="og:description"
+      content="We are a creators’ hub and a big idea agency driven by insight."
+    />
+    <meta property="og:url" content="http://giraffe.com.pk/" />
+    <meta property="og:site_name" content="Giraffe" />
+    <meta
+      property="article:modified_time"
+      content="2021-04-09T11:03:53+00:00"
+    />
+    <meta
+      property="og:image"
+      content="https://giraffe.com.pk/wp-content/uploads/2020/08/giraffe-share.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="600" />
   </head>
   <body>
     <header>
-        <img src="./img/logo-bright.png" height="40" class="h-8">
-        <nav>
-          <a href="#">Our Philosophy</a>
-          <a href="#">Work</a>
-          <a href="#">Team</a>
-          <a href="#">Contact us</a>
-          <a href="#">Careers</a>
-        </nav>
+      <img src="./img/logo-bright.png" height="40" class="h-8" />
+      <nav>
+        <a href="#">Our Philosophy</a>
+        <a href="#">Work</a>
+        <a href="#">Team</a>
+        <a href="#">Contact us</a>
+        <a href="#">Careers</a>
+      </nav>
     </header>
 
     <section id="intro" class="relative">
@@ -47,11 +81,20 @@
             </div>
             <div class="building-wrapper">
               <img class="sun" src="./img/sun.svg" alt="" />
-              <img
-                class="building max-w-none h-96 md:h-auto"
-                src="./img/building-top.svg"
-                alt=""
-              />
+              <picture>
+                <source
+                  media="(max-width:768px)"
+                  srcset="./img/building-top-mobile.svg"
+                />
+                <source
+                  media="(min-width:769px)"
+                  srcset="./img/building-top.svg"
+                />
+                <img
+                  class="building max-w-none h-96 md:h-auto"
+                  src="./img/building-top.svg"
+                />
+              </picture>
             </div>
           </div>
         </div>
@@ -61,14 +104,22 @@
     <section id="gate" class="relative">
       <div class="container max-w-none h-screen sticky top-0">
         <div class="pb-16 h-screen relative">
-          <img
-            class="building max-w-none object-bottom h-full relative z-10 -top-px"
-            src="./img/building-bottom.svg"
-            alt=""
-          />
-          <div
-            class="gate"
-          >
+          <picture>
+            <source
+              media="(max-width:768px)"
+              srcset="./img/building-bottom-mobile.svg"
+            />
+            <source
+              media="(min-width:769px)"
+              srcset="./img/building-bottom.svg"
+            />
+            <img
+              class="building max-w-none object-bottom h-full relative z-10 -top-px"
+              src="./img/building-bottom.svg"
+              alt=""
+            />
+          </picture>
+          <div class="gate">
             <img
               src="./img/gate.svg"
               alt=""
@@ -76,12 +127,12 @@
             />
             <!-- doors -->
             <div class="door door__left">
-              <img class="w-full" src="./img/door.svg" alt="left door">
+              <img class="w-full" src="./img/door.svg" alt="left door" />
               <div class="door__block"></div>
             </div>
             <div class="door door__right">
               <div class="door__block"></div>
-              <img class="w-full" src="./img/door-right.svg" alt="right door">
+              <img class="w-full" src="./img/door-right.svg" alt="right door" />
             </div>
           </div>
           <div class="road">
