@@ -13,7 +13,7 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 ScrollTrigger.defaults({
-  // markers: true,
+  markers: true,
   duration: 0.4,
   ease: "expo.inOut",
 });
@@ -21,6 +21,8 @@ ScrollTrigger.defaults({
 const rikshaw = document.querySelector(".rikshaw");
 const sun = document.querySelector(".sun");
 const clouds = document.querySelector(".clouds");
+const doorLeft = document.querySelector(".door__left");
+const doorRight = document.querySelector(".door__right");
 const sky = document.body;
 const tyres = gsap.utils.toArray(".front, .back");
 const lampLights = gsap.utils.toArray(".lamp-light");
@@ -54,6 +56,20 @@ const rikshawTimeline = gsap.timeline({
     // end: "bottom 100px",
     // end: "+=1000%",
     end: `+=${config.INTRO_SCROLL_LENGTH}`,
+    scrub: 0.7,
+    // pin: "#intro .container",
+    pinSpacing: true,
+    // spacer: true,
+    invalidateOnRefresh: true,
+  },
+});
+
+const gateTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#gate",
+    start: "top top",
+    end: "bottom bottom",
+    // end: "+=1000%",
     scrub: 0.7,
     // pin: "#intro .container",
     pinSpacing: true,
@@ -118,74 +134,88 @@ lampLights.forEach((light, i) => {
   );
 });
 
-const projectsBGTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#projects-bg",
-    start: "top top",
-    // end: `bottom top`,
-    end: () =>
-      `+=${
-        document.getElementById("projects").clientHeight -
-        document.getElementById("projects-spacer").clientHeight
-      }`,
-    scrub: 0.7,
-    pin: "#projects-bg",
-    pinSpacing: false,
-    // invalidateOnRefresh: true,
-  },
-});
+gateTimeline.fromTo(
+  doorLeft,
+  { opacity: () => 0.2 },
+  { opacity: () => 1 },
+  "door"
+);
 
-const projectElementsTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".project-elements",
-    start: "top top",
-    // end: `bottom top`,
-    end: () =>
-      `+=${
-        document.getElementById("projects").clientHeight -
-        document.getElementById("projects-spacer").clientHeight -
-        document.getElementById("projects-bg").clientHeight
-      }`,
-    scrub: 0.7,
-    pin: ".project-elements",
-    pinSpacing: false,
-    // invalidateOnRefresh: true,
-  },
-});
+gateTimeline.fromTo(
+  doorRight,
+  { opacity: () => 0.2 },
+  { opacity: () => 1 },
+  "door"
+);
 
-const teamBGTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#team-bg",
-    start: "top top",
-    // end: `bottom top`,
-    end: () =>
-      `+=${
-        document.getElementById("projects").clientHeight -
-        document.getElementById("projects-spacer").clientHeight
-      }`,
-    scrub: 0.7,
-    pin: "#team-bg",
-    pinSpacing: false,
-    // invalidateOnRefresh: true,
-  },
-});
+// const projectsBGTimeline = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: "#projects-bg",
+//     start: "top top",
+//     // end: `bottom top`,
+//     end: () =>
+//       `+=${
+//         document.getElementById("projects").clientHeight -
+//         document.getElementById("projects-spacer").clientHeight
+//       }`,
+//     scrub: 0.7,
+//     pin: "#projects-bg",
+//     pinSpacing: false,
+//     // invalidateOnRefresh: true,
+//   },
+// });
 
-const contactBGTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#contact-bg",
-    start: "top top",
-    // end: `bottom top`,
-    end: () =>
-      `+=${
-        document.getElementById("projects").clientHeight -
-        document.getElementById("projects-spacer").clientHeight
-      }`,
-    scrub: 0.7,
-    pin: "#contact-bg",
-    pinSpacing: false,
-    // invalidateOnRefresh: true,
-  },
-});
+// const projectElementsTimeline = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: ".project-elements",
+//     start: "top top",
+//     // end: `bottom top`,
+//     end: () =>
+//       `+=${
+//         document.getElementById("projects").clientHeight -
+//         document.getElementById("projects-spacer").clientHeight -
+//         document.getElementById("projects-bg").clientHeight
+//       }`,
+//     scrub: 0.7,
+//     pin: ".project-elements",
+//     pinSpacing: false,
+//     // invalidateOnRefresh: true,
+//   },
+// });
+
+// const teamBGTimeline = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: "#team-bg",
+//     start: "top top",
+//     // end: `bottom top`,
+//     end: () =>
+//       `+=${
+//         document.getElementById("projects").clientHeight -
+//         document.getElementById("projects-spacer").clientHeight
+//       }`,
+//     scrub: 0.7,
+//     pin: "#team-bg",
+//     pinSpacing: false,
+//     // invalidateOnRefresh: true,
+//   },
+// });
+
+// const contactBGTimeline = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: "#contact-bg",
+//     start: "top top",
+//     // end: `bottom top`,
+//     end: () =>
+//       `+=${
+//         document.getElementById("projects").clientHeight -
+//         document.getElementById("projects-spacer").clientHeight
+//       }`,
+//     scrub: 0.7,
+//     pin: "#contact-bg",
+//     pinSpacing: false,
+//     // invalidateOnRefresh: true,
+//   },
+// });
 
 // const showcaseTimeline = gsap.timeline({
 //   scrollTrigger: {
@@ -199,22 +229,22 @@ const contactBGTimeline = gsap.timeline({
 //   },
 // });
 
-showcase.forEach((panel, i) => {
-  // const mainAnim = gsap.timeline({ paused: true });
-  ScrollTrigger.create({
-    trigger: panel,
-    start: "top top",
-    end: `+=1000`,
-    scrub: 0.7,
-    pin: panel,
-    pinSpacing: true,
-  });
-  // ScrollTrigger.create({
-  //   trigger: panel,
-  //   start: "bottom bottom",
-  //   onEnterBack: () => goToSection(i),
-  // });
-});
+// showcase.forEach((panel, i) => {
+//   // const mainAnim = gsap.timeline({ paused: true });
+//   ScrollTrigger.create({
+//     trigger: panel,
+//     start: "top top",
+//     end: `+=1000`,
+//     scrub: 0.7,
+//     pin: panel,
+//     pinSpacing: true,
+//   });
+//   // ScrollTrigger.create({
+//   //   trigger: panel,
+//   //   start: "bottom bottom",
+//   //   onEnterBack: () => goToSection(i),
+//   // });
+// });
 
 // sections.forEach((eachPanel, i) => {
 // const mainAnim = gsap.timeline({ paused: true });

@@ -34,9 +34,6 @@ body {
   margin: 0;
 }
 
-body {
-}
-
 video {
   max-width: 100%;
   object-fit: cover;
@@ -73,7 +70,30 @@ header {
   background-color: #000;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
   z-index: 9999999999;
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    a {
+      display: flex;
+      align-items: center;
+      color: #fff;
+
+      &:not(:last-child)::after {
+        content: '|';
+        flex-shrink: 0;
+        display: block;
+        width: 4px;
+        margin-left: 1rem;
+        background-color: #fff;
+      }
+    }
+  }
 }
 
 // video {
@@ -188,28 +208,26 @@ header {
 }
 
 .gate {
-  // max-height: 80vh;
-  padding-top: 70px;
-  padding-bottom: 4.625rem;
-  height: 100%;
   position: absolute;
-  top: 0;
+  bottom: 72px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  overflow: clip;
-  display: flex;
-  align-items: flex-end;
+  width: 32%;
+  aspect-ratio: 912 / 1228;
 }
 
-.gate-bg {
+.door {
   position: absolute;
-  left: 0;
-  width: 100%;
-  background: #f2bf2e;
-  z-index: 0;
-  bottom: 4.625rem;
-  height: 66.666667%;
+  z-index: 50;
+  width: 40%;
+  left: 10%;
+  bottom: -2px;
+
+  &__right {
+    left: unset;
+    right: 10%;
+  }
 }
 
 .showcase {
@@ -230,7 +248,14 @@ header {
 // #gate
 
 #gate {
-  height: calc(5000px + 3000px); // needed 5000 + 3000 offset for later sections
+  // height: calc(5000px + 3000px); // needed 5000 + 3000 offset for later sections
+  height: calc(5000px); // needed 5000 + 3000 offset for later sections
+}
+
+// #projects
+
+#projects {
+  display: none;
 }
 
 // backgrounds
@@ -242,6 +267,9 @@ header {
 }
 
 @media (max-width: 768px) {
+  header nav {
+    display: none;
+  }
   .rikshaw {
     width: 200px;
     top: 1px;
@@ -298,7 +326,7 @@ header {
     margin-top: 50px !important;
     border-radius: 80px;
   }
-.gate-bg {
-  height: 50%;
-}
+  .gate {
+    padding-top: 180px;
+  }
 }
