@@ -179,7 +179,8 @@ header {
 .lamp {
   position: absolute;
   width: auto;
-  top: -14rem;
+  top: -13rem;
+  z-index: -1;
 
   &--left {
     left: 5rem;
@@ -198,8 +199,10 @@ header {
   }
   .lamp-light {
     height: 14rem;
-    top: 0;
-    left: 0;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: relative;
   }
 }
 
@@ -221,27 +224,45 @@ header {
   position: absolute;
   z-index: 50;
   width: 40%;
+  height: 81%;
   left: 10%;
   bottom: -2px;
   display: flex;
 
-  img {
-    flex-shrink: 0;
-  }
-
   &__left {
     transform-origin: left;
+
+    &__frame {
+      background: url('./img/door.png');
+    }
+    &__block {
+      right: 0;
+    }
   }
 
   &__right {
+    justify-content: flex-end;
     left: unset;
     right: 10%;
     transform-origin: right;
+
+    &__frame {
+      background: url('./img/door-right.png');
+    }
+    &__block {
+      left: 0;
+    }
+  }
+
+  &__frame {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
   }
 
   &__block {
     flex-shrink: 0;
-    top: 0;
     width: 0;
     background-color: #662f00;
   }
@@ -316,10 +337,18 @@ header {
 
     &--left {
       left: -5rem;
+
+      .lamp-light {
+        left: -1px;
+      }
     }
 
     &--right {
       right: -5rem;
+
+      .lamp-light {
+        left: 1px;
+      }
     }
 
     .lamp-frame {
@@ -330,9 +359,9 @@ header {
       height: 10rem;
     }
     .lamp-light {
-      height: 8.5rem;
-      top: 0;
-      left: 0;
+      height: 8.8rem;
+      top: -4px;
+      transform: none;
     }
   }
   .plant {

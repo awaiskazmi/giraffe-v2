@@ -23,6 +23,8 @@ const sun = document.querySelector(".sun");
 const clouds = document.querySelector(".clouds");
 const doorLeft = document.querySelector(".door__left");
 const doorRight = document.querySelector(".door__right");
+const doorLeftFrame = document.querySelector(".door__left__frame");
+const doorRightFrame = document.querySelector(".door__right__frame");
 const doorBlocks = document.querySelectorAll(".door__block");
 const sky = document.body;
 const tyres = gsap.utils.toArray(".front, .back");
@@ -69,7 +71,7 @@ const gateTimeline = gsap.timeline({
   scrollTrigger: {
     trigger: "#gate",
     start: "top top",
-    end: "bottom bottom",
+    end: "+=1000px",
     scrub: 0.7,
     pinSpacing: true,
     invalidateOnRefresh: true,
@@ -80,7 +82,7 @@ const gateDoorBlockTimeline = gsap.timeline({
   scrollTrigger: {
     trigger: "#gate",
     start: "top top",
-    end: "+=800px",
+    end: "+=400px",
     scrub: 0.7,
     pinSpacing: true,
     invalidateOnRefresh: true,
@@ -152,7 +154,7 @@ gateTimeline.fromTo(
 
 gateTimeline.fromTo(
   doorRight,
-  { rotationY: () => 1 },
+  { rotationY: () => 0 },
   { rotationY: () => -180 },
   "door"
 );
@@ -162,6 +164,7 @@ doorBlocks.forEach((doorBlock, i) => {
     doorBlock,
     { width: 0 },
     { width: 8 },
+    "doorBlockSize"
   );
 });
 
