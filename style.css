@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Womby";
-  src: url("./fonts/Womby-Regular.woff2");
+  src: url("https://giraffe.com.pk/wp-content/themes/bomby/fonts/Womby-Regular.woff2");
   font-style: normal;
 }
 html.lenis {
@@ -93,6 +93,35 @@ header nav a:not(:last-child)::after {
   background-color: #fff;
 }
 
+.scroll-indiccator {
+  position: absolute;
+  height: 80px;
+  width: 2px;
+  border-radius: 100px;
+  background-color: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll infinite 2s ease-in-out;
+}
+
+@keyframes scroll {
+  0% {
+    transform-origin: bottom;
+    transform: scaleY(100%);
+  }
+  50% {
+    transform-origin: bottom;
+    transform: scaleY(0%);
+  }
+  51% {
+    transform-origin: top;
+    transform: scaleY(0%);
+  }
+  100% {
+    transform-origin: top;
+    transform: scaleY(100%);
+  }
+}
 .rikshaw {
   width: 300px;
   position: relative;

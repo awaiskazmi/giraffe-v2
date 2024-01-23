@@ -1,4 +1,4 @@
-import * as config from "./vars.js";
+import * as config from './vars.js';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(ScrollToPlugin);
@@ -15,25 +15,26 @@ requestAnimationFrame(raf);
 ScrollTrigger.defaults({
   markers: false,
   duration: 0.4,
-  ease: "expo.inOut",
+  ease: 'expo.inOut',
 });
 
-const rikshaw = document.querySelector(".rikshaw");
-const sun = document.querySelector(".sun");
-const clouds = document.querySelector(".clouds");
-const doorLeft = document.querySelector(".door__left");
-const doorRight = document.querySelector(".door__right");
-const doorLeftFrame = document.querySelector(".door__left__frame");
-const doorRightFrame = document.querySelector(".door__right__frame");
-const doorBlocks = document.querySelectorAll(".door__block");
+const scrollIndicator = document.querySelector('.scroll-indiccator');
+const rikshaw = document.querySelector('.rikshaw');
+const sun = document.querySelector('.sun');
+const clouds = document.querySelector('.clouds');
+const doorLeft = document.querySelector('.door__left');
+const doorRight = document.querySelector('.door__right');
+const doorLeftFrame = document.querySelector('.door__left__frame');
+const doorRightFrame = document.querySelector('.door__right__frame');
+const doorBlocks = document.querySelectorAll('.door__block');
 const sky = document.body;
-const tyres = gsap.utils.toArray(".front, .back");
-const lampLights = gsap.utils.toArray(".lamp-light");
+const tyres = gsap.utils.toArray('.front, .back');
+const lampLights = gsap.utils.toArray('.lamp-light');
 
 let rikshawLeftOffset = document.body.clientWidth;
 
 // let sections = gsap.utils.toArray(".scroll-to");
-let showcase = gsap.utils.toArray(".showcase");
+let showcase = gsap.utils.toArray('.showcase');
 
 // console.log(sections);
 
@@ -49,13 +50,13 @@ function resize() {
   rikshawLeftOffset = document.body.clientWidth;
 }
 
-ScrollTrigger.addEventListener("refreshInit", resize);
+ScrollTrigger.addEventListener('refreshInit', resize);
 resize();
 
 const rikshawTimeline = gsap.timeline({
   scrollTrigger: {
-    trigger: "#intro",
-    start: "top top",
+    trigger: '#intro',
+    start: 'top top',
     // end: "bottom 100px",
     // end: "+=1000%",
     end: `+=${config.INTRO_SCROLL_LENGTH}`,
@@ -69,9 +70,9 @@ const rikshawTimeline = gsap.timeline({
 
 const gateTimeline = gsap.timeline({
   scrollTrigger: {
-    trigger: "#gate",
-    start: "top top",
-    end: "+=1000px",
+    trigger: '#gate',
+    start: 'top top',
+    end: '+=1000px',
     scrub: 0.7,
     pinSpacing: true,
     invalidateOnRefresh: true,
@@ -80,14 +81,26 @@ const gateTimeline = gsap.timeline({
 
 const gateDoorBlockTimeline = gsap.timeline({
   scrollTrigger: {
-    trigger: "#gate",
-    start: "top top",
-    end: "+=400px",
+    trigger: '#gate',
+    start: 'top top',
+    end: '+=400px',
     scrub: 0.7,
     pinSpacing: true,
     invalidateOnRefresh: true,
   },
 });
+
+const scrollIndicatorTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: '#page-header',
+    start: 'top top',
+    end: '+=1px',
+    scrub: 0.7,
+    invalidateOnRefresh: true,
+  },
+});
+
+scrollIndicatorTimeline.to(scrollIndicator, { opacity: 0 });
 
 rikshawTimeline.fromTo(
   rikshaw,
@@ -95,7 +108,7 @@ rikshawTimeline.fromTo(
   {
     left: () => -rikshaw.clientWidth - 100,
   },
-  "rikshaw"
+  'rikshaw'
 );
 
 rikshawTimeline.fromTo(
@@ -104,7 +117,7 @@ rikshawTimeline.fromTo(
   {
     backgroundColor: () => config.NIGHT_COLOR,
   },
-  "rikshaw"
+  'rikshaw'
 );
 
 rikshawTimeline.fromTo(
@@ -113,7 +126,7 @@ rikshawTimeline.fromTo(
   {
     y: () => 30,
   },
-  "rikshaw"
+  'rikshaw'
 );
 
 rikshawTimeline.fromTo(
@@ -122,7 +135,7 @@ rikshawTimeline.fromTo(
   {
     opacity: () => 1,
   },
-  "rikshaw"
+  'rikshaw'
 );
 
 tyres.forEach((tyre, i) => {
@@ -131,7 +144,7 @@ tyres.forEach((tyre, i) => {
     {
       rotation: -360 * 5,
     },
-    "rikshaw"
+    'rikshaw'
   );
 });
 
@@ -141,7 +154,7 @@ lampLights.forEach((light, i) => {
     {
       opacity: 0,
     },
-    "rikshaw"
+    'rikshaw'
   );
 });
 
@@ -149,14 +162,14 @@ gateTimeline.fromTo(
   doorLeft,
   { rotationY: () => 0 },
   { rotationY: () => -180 },
-  "door"
+  'door'
 );
 
 gateTimeline.fromTo(
   doorRight,
   { rotationY: () => 0 },
   { rotationY: () => -180 },
-  "door"
+  'door'
 );
 
 doorBlocks.forEach((doorBlock, i) => {
@@ -164,7 +177,7 @@ doorBlocks.forEach((doorBlock, i) => {
     doorBlock,
     { width: 0 },
     { width: 8 },
-    "doorBlockSize"
+    'doorBlockSize'
   );
 });
 
@@ -281,11 +294,11 @@ doorBlocks.forEach((doorBlock, i) => {
 
 // rikshaw body bounce animation
 if (config.ENABLE_RIKSHAW_BOUNCE) {
-  gsap.to(".rikshaw-body", {
+  gsap.to('.rikshaw-body', {
     duration: 0.07,
     y: 2,
     repeat: -1,
-    ease: "circ.in",
+    ease: 'circ.in',
     yoyo: true,
   });
 }
